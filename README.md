@@ -1,2 +1,1 @@
-!Component structure diagram(./controllers_brief.svg)
-<img src="./ComponentDiagram.svg">
+![alt text](./ComponentDiagram.svg "Component Diagram")
