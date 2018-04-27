@@ -1,10 +1,10 @@
 import React from 'react';
 import Menu from './Menu';
 
-function Admin(){
+function Main(){
   return (
     <div>
-      <h3>Admin</h3>
+      <h3>Main</h3>
       <hr/>
       <Menu/>
       )}
@@ -12,4 +12,4 @@ function Admin(){
   );
 }
 
-export default Admin;
+export default Main;
