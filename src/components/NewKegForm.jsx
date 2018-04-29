@@ -8,10 +8,6 @@ function NewKegForm(){
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    console.log(_name.value);
-    console.log(_description.value);
-    console.log(_abv.value);
-    console.log(_pints.value);
     _name.value = '';
     _description.value = '';
     _abv.value = '';

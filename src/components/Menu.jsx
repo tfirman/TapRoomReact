@@ -1,32 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Keg from './Keg';
 
-var masterKegList = [
-  {
-    name: 'Imperial March',
-    description: 'Imperial Stout',
-    abv: '9.0%',
-    pints: 128
-  },
-  {
-    name: 'Scruffy-Looking Nerf Herder',
-    description: 'Wheat Beer',
-    abv: '4.0%',
-    pints: 128
-  },
-  {
-    name: 'The Droids You\'re Looking For',
-    description: 'English Porter',
-    abv: '6.0%',
-    pints: 128
-  }
-];
-
-function Menu(){
+function Menu(props){
   return (
     <div>
+      <h3>Menu</h3>
       <hr/>
-      {masterKegList.map((keg, index) =>
+      {props.menu.map((keg, index) =>
         <Keg name={keg.name}
           description={keg.description}
           abv={keg.abv}
@@ -36,5 +17,9 @@ function Menu(){
     </div>
   );
 }
+
+Menu.propTypes = {
+  menu: PropTypes.array
+};
 
 export default Menu;

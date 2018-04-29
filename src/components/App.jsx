@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Main from './Main';
+import Menu from './Menu';
 import Admin from './Admin';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       masterKegList: []
     };
+    this.handleAddingNewKegToMenu = this.handleAddingNewKegToMenu.bind(this);
   }
 
   handleAddingNewKegToMenu(newKeg){
@@ -20,15 +21,14 @@ class App extends React.Component {
     this.setState({masterKegList: newMasterKegList});
   }
 
-
-
   render(){
     return (
       <div>
         <Header/>
         <Switch>
-          <Route exact path='/' component={Main} />
-          <Route path='/admin' component={Admin} />
+          <Route exact path='/' render={()=><Menu menu={this.state.masterKegList} />} />
+          <Route path='/admin' render={()=><Admin menu={this.state.masterKegList}
+            onNewKegCreation={this.handleAddingNewKegToMenu} />} />
           <Route component={Error404} />
         </Switch>
       </div>
