@@ -7,7 +7,6 @@ function Admin(){
       <h3>Admin</h3>
       <hr/>
       <Menu/>
-      )}
     </div>
   );
 }

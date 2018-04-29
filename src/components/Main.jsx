@@ -7,7 +7,6 @@ function Main(){
       <h3>Main</h3>
       <hr/>
       <Menu/>
-      )}
     </div>
   );
 }
