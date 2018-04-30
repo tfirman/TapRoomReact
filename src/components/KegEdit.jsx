@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NewKegForm(props){
+function KegEdit(props){
   let _name = null;
   let _description = null;
   let _abv = null;
   let _pints = null;
 
-  function handleNewKegFormSubmission(event) {
+  function handleKegEditSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({name: _name.value, description: _description.value, abv: _abv.value, pints: _pints.value});
+    props.onKegEditing({name: _name.value, description: _description.value, abv: _abv.value, pints: _pints.value});
     _name.value = '';
     _description.value = '';
     _abv.value = '';
@@ -37,7 +37,7 @@ function NewKegForm(props){
         <input
           type='number'
           id='pints'
-          velue='128'
+          placeholder='128'
           ref={(input) => {_pints = input;}}/>
         <button type='submit'>Tap that Keg!</button>
       </form>
@@ -45,8 +45,8 @@ function NewKegForm(props){
   );
 }
 
-NewKegForm.propTypes = {
-  onNewKegCreation: PropTypes.func
+KegEdit.propTypes = {
+  onKegEditing: PropTypes.func
 };
 
-export default NewKegForm;
+export default KegEdit;
