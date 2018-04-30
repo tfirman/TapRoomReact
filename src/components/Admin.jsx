@@ -28,7 +28,7 @@ class Admin extends React.Component {
         <div>
           <h4>Staff Only!</h4>
           <NewKegRequest onConfirmNewKeg={this.handleConfirmNewKeg}/>
-          <Menu menu={this.menu} />
+          <Menu menu={this.props.menu} />
         </div>;
     }
     return (
@@ -41,7 +41,7 @@ class Admin extends React.Component {
 
 Admin.propTypes = {
   onNewKegCreation: PropTypes.func,
-  menu: PropTypes.array
+  menu: PropTypes.object
 };
 
 export default Admin;

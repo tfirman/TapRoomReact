@@ -4,20 +4,23 @@ import Menu from './Menu';
 import Admin from './Admin';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
+import { v4 } from 'uuid';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: []
+      masterKegList: {}
     };
     this.handleAddingNewKegToMenu = this.handleAddingNewKegToMenu.bind(this);
   }
 
   handleAddingNewKegToMenu(newKeg){
-    var newMasterKegList = this.state.masterKegList.slice();
-    newMasterKegList.push(newKeg);
+    let newKegId = v4()
+    let newMasterKegList = Object.assign({}, this.state.masterKegList, {
+      [newKegId]: newKeg
+    });
     this.setState({masterKegList: newMasterKegList});
   }
 

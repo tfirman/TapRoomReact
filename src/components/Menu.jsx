@@ -7,19 +7,21 @@ function Menu(props){
     <div>
       <h3>Menu</h3>
       <hr/>
-      {props.menu.map((keg, index) =>
-        <Keg name={keg.name}
+      {Object.keys(props.menu).map(function(kegId) {
+        var keg = props.menu[kegId];
+        return <Keg name={keg.name}
           description={keg.description}
           abv={keg.abv}
           pints={keg.pints}
-          key={index}/>
-      )}
+          key={kegId}
+          kegId={kegId}/>;
+      })}
     </div>
   );
 }
 
 Menu.propTypes = {
-  menu: PropTypes.array
+  menu: PropTypes.object
 };
 
 export default Menu;
