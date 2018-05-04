@@ -9,7 +9,7 @@ function KegEdit(props){
 
   function handleKegEditSubmission(event) {
     event.preventDefault();
-    props.onKegEditing({name: _name.value, description: _description.value, abv: _abv.value, pints: _pints.value});
+    props.onEditKeg({name: _name.value, description: _description.value, abv: _abv.value, pints: _pints.value});
     _name.value = '';
     _description.value = '';
     _abv.value = '';
@@ -18,6 +18,7 @@ function KegEdit(props){
 
   return (
     <div>
+      <h3>Edit the selected Keg!</h3>
       <form onSubmit={handleKegEditSubmission}>
         <input
           type='text'
@@ -46,9 +47,8 @@ function KegEdit(props){
 }
 
 KegEdit.propTypes = {
-  onKegEditing: PropTypes.func,
+  onEditKeg: PropTypes.func,
   selectedKeg: PropTypes.object
-
 };
 
 export default KegEdit;

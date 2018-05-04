@@ -16,12 +16,20 @@ class App extends React.Component {
     };
     this.handleAddingNewKegToMenu = this.handleAddingNewKegToMenu.bind(this);
     this.handleChangingSelectedKeg = this.handleChangingSelectedKeg.bind(this);
+    this.handleEditKeg = this.handleEditKeg.bind(this);
   }
 
   handleAddingNewKegToMenu(newKeg){
     let newKegId = v4();
     let newMasterKegList = Object.assign({}, this.state.masterKegList, {
       [newKegId]: newKeg
+    });
+    this.setState({masterKegList: newMasterKegList});
+  }
+
+  handleEditKeg(editedKeg){
+    let newMasterKegList = Object.assign({}, this.state.masterKegList, {
+      [this.state.selectedKeg]: editedKeg
     });
     this.setState({masterKegList: newMasterKegList});
   }
@@ -36,8 +44,9 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={()=><Menu menu={this.state.masterKegList} />} />
-          <Route path='/admin' render={(props)=><Admin menu={this.state.masterKegList}
+          <Route path='/admin' render={()=><Admin menu={this.state.masterKegList}
             onNewKegCreation={this.handleAddingNewKegToMenu}
+            onEditKeg={this.handleEditKeg}
             onKegSelection={this.handleChangingSelectedKeg}
             selectedKeg={this.state.selectedKeg} />} />
           <Route component={Error404} />

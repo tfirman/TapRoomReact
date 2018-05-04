@@ -23,7 +23,7 @@ class Admin extends React.Component {
     let currentlyVisibleContent = null;
     let optionalSelectedKegContent = null;
     if (this.props.selectedKeg != null){
-      optionalSelectedKegContent = <KegEdit selectedKeg={this.props.menu[this.props.selectedKeg]}/>;
+      optionalSelectedKegContent = <KegEdit selectedKeg={this.props.menu[this.props.selectedKeg]} onEditKeg={this.props.onEditKeg}/>;
     }
     if (this.state.formVisibleOnPage){
       currentlyVisibleContent = <NewKegForm onNewKegCreation={this.props.onNewKegCreation}/>;
@@ -48,6 +48,7 @@ class Admin extends React.Component {
 
 Admin.propTypes = {
   onNewKegCreation: PropTypes.func,
+  onEditKeg: PropTypes.func,
   menu: PropTypes.object,
   onKegSelection: PropTypes.func,
   selectedKeg: PropTypes.string
