@@ -35,7 +35,7 @@ class Admin extends React.Component {
           {optionalSelectedKegContent}
           <Menu
             menu={this.props.menu}
-            onKegSelection={this.props.onKegSelection}/>/>
+            onKegSelection={this.props.onKegSelection}/>
         </div>;
     }
     return (
@@ -49,7 +49,7 @@ class Admin extends React.Component {
 Admin.propTypes = {
   onNewKegCreation: PropTypes.func,
   menu: PropTypes.object,
-  onKegSelection: PropTypes.func.isRequired,
+  onKegSelection: PropTypes.func,
   selectedKeg: PropTypes.string
 };
 

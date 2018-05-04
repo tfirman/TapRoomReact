@@ -18,35 +18,37 @@ function KegEdit(props){
 
   return (
     <div>
-      <form onSubmit={handleNewKegFormSubmission}>
+      <form onSubmit={handleKegEditSubmission}>
         <input
           type='text'
           id='name'
-          placeholder='Beer Name'
+          defaultValue = {props.selectedKeg.name}
           ref={(input) => {_name = input;}}/>
         <input
           type='text'
           id='description'
-          placeholder='Description'
+          defaultValue = {props.selectedKeg.description}
           ref={(input) => {_description = input;}}/>
         <input
           type='text'
           id='issue'
-          placeholder='Alcohol by percent'
+          defaultValue = {props.selectedKeg.abv}
           ref={(input) => {_abv = input;}}/>
         <input
           type='number'
           id='pints'
-          placeholder='128'
+          defaultValue = {props.selectedKeg.pints}
           ref={(input) => {_pints = input;}}/>
-        <button type='submit'>Tap that Keg!</button>
+        <button type='submit'>Edit that Keg!</button>
       </form>
     </div>
   );
 }
 
 KegEdit.propTypes = {
-  onKegEditing: PropTypes.func
+  onKegEditing: PropTypes.func,
+  selectedKeg: PropTypes.object
+
 };
 
 export default KegEdit;

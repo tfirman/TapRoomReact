@@ -14,6 +14,7 @@ function Menu(props){
           abv={keg.abv}
           pints={keg.pints}
           key={kegId}
+          onKegSelection={props.onKegSelection}
           kegId={kegId}/>;
       })}
     </div>
@@ -21,7 +22,8 @@ function Menu(props){
 }
 
 Menu.propTypes = {
-  menu: PropTypes.object
+  menu: PropTypes.object,
+  onKegSelection: PropTypes.func
 };
 
 export default Menu;

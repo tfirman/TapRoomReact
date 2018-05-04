@@ -37,7 +37,7 @@ function NewKegForm(props){
         <input
           type='number'
           id='pints'
-          velue='128'
+          defaultValue={128}
           ref={(input) => {_pints = input;}}/>
         <button type='submit'>Tap that Keg!</button>
       </form>

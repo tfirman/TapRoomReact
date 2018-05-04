@@ -36,7 +36,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={()=><Menu menu={this.state.masterKegList} />} />
-          <Route path='/admin' render={()=><Admin menu={this.state.masterKegList}
+          <Route path='/admin' render={(props)=><Admin menu={this.state.masterKegList}
             onNewKegCreation={this.handleAddingNewKegToMenu}
             onKegSelection={this.handleChangingSelectedKeg}
             selectedKeg={this.state.selectedKeg} />} />
